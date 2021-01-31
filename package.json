@@ -1,0 +1,23 @@
+{
+  "name": "calculator",
+  "version": "0.1.0",
+  "description": "Calculator",
+  "main": "script.js",
+  "scripts": {
+    "dev": "webpack --mode development"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DrumRack/calculator-js.git"
+  },
+  "author": "DrumRack <redrumrack@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DrumRack/calculator-js/issues"
+  },
+  "homepage": "https://github.com/DrumRack/calculator-js#readme",
+  "devDependencies": {
+    "webpack": "^5.19.0",
+    "webpack-cli": "^4.4.0"
+  }
+}
