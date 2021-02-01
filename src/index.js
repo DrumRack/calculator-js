@@ -4,6 +4,7 @@ let registerA = ''
 let registerB = ''
 let inputRegisterB = false
 let operator
+let result
 
 const display = document.getElementById('display')
 
@@ -118,21 +119,45 @@ document.getElementById('zero').onclick = function() {
 }
 
 document.getElementById('plus').onclick = function() {
+    if (registerB) {
+        result =  sum(parseInt(registerA), parseInt(registerB), operator)
+        display.innerText = result
+        registerA = result
+        registerB = ''
+    }
     operator = '+'
     inputRegisterB = true
 }
 
 document.getElementById('minus').onclick = function() {
+    if (registerB) {
+        result =  sum(parseInt(registerA), parseInt(registerB), operator)
+        display.innerText = result
+        registerA = result
+        registerB = ''
+    }
     operator = '-'
     inputRegisterB = true
 }
 
 document.getElementById('multiply').onclick = function() {
+    if (registerB) {
+        result =  sum(parseInt(registerA), parseInt(registerB), operator)
+        display.innerText = result
+        registerA = result
+        registerB = ''
+    }
     operator = '*'
     inputRegisterB = true
 }
 
 document.getElementById('divide').onclick = function() {
+    if (registerB) {
+        result =  sum(parseInt(registerA), parseInt(registerB), operator)
+        display.innerText = result
+        registerA = result
+        registerB = ''
+    }
     operator = '/'
     inputRegisterB = true
 }
@@ -146,5 +171,6 @@ document.getElementById('reset').onclick = function() {
     registerB = ''
     inputRegisterB = false
     operator = undefined
+    result = undefined
     display.innerText = 0
 }

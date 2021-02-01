@@ -1,6 +1,13 @@
+@font-face {
+    font-family: "FiraGO";
+    src: url("font/FiraGO/FiraGO_TTF_1001/Roman/FiraGO-Regular.ttf") format("opentype");
+    font-style: normal;
+    font-weight: normal;
+}
+
 body {
     background: gray;
-    font-family: "Arial", sans-serif;
+    font-family: "FiraGO", sans-serif;
 }
 
 .calculator {
@@ -33,6 +40,10 @@ body {
     font-size: 18pt;
 }
 
+.button:hover {
+    background: #B1B1B1;
+}
+
 .number {
     background: white;
     font-weight: bold;
@@ -40,4 +51,8 @@ body {
 
 .sum {
     background: #7EAED3;
+}
+
+.sum:hover {
+    background: #5787AC;
 }
