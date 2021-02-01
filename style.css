@@ -40,6 +40,10 @@ body {
     font-size: 18pt;
 }
 
+.button::selection {
+    background: rgba(red, green, blue, 1);
+}
+
 .button:hover {
     background: #B1B1B1;
 }

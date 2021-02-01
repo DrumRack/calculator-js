@@ -5,6 +5,7 @@ let registerB = ''
 let inputRegisterB = false
 let operator
 let result
+let lastAction
 
 const display = document.getElementById('display')
 
@@ -16,6 +17,7 @@ document.getElementById('one').onclick = function() {
     else {
         registerB = registerB + '1'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -27,6 +29,7 @@ document.getElementById('two').onclick = function() {
     else {
         registerB = registerB + '2'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -38,6 +41,7 @@ document.getElementById('three').onclick = function() {
     else {
         registerB = registerB + '3'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -49,6 +53,7 @@ document.getElementById('four').onclick = function() {
     else {
         registerB = registerB + '4'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -60,6 +65,7 @@ document.getElementById('five').onclick = function() {
     else {
         registerB = registerB + '5'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -71,6 +77,7 @@ document.getElementById('six').onclick = function() {
     else {
         registerB = registerB + '6'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -82,6 +89,7 @@ document.getElementById('seven').onclick = function() {
     else {
         registerB = registerB + '7'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -93,6 +101,7 @@ document.getElementById('eight').onclick = function() {
     else {
         registerB = registerB + '8'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -104,6 +113,7 @@ document.getElementById('nine').onclick = function() {
     else {
         registerB = registerB + '9'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
@@ -115,28 +125,29 @@ document.getElementById('zero').onclick = function() {
     else {
         registerB = registerB + '0'
         display.innerText = registerB
+        lastAction = 'registerB'
     }
 }
 
 document.getElementById('plus').onclick = function() {
-    if (registerB) {
-        result =  sum(parseInt(registerA), parseInt(registerB), operator)
+    if (registerB && lastAction != 'sum') {
+        result = sum(parseInt(registerA), parseInt(registerB), operator)
         display.innerText = result
         registerA = result
-        registerB = ''
     }
     operator = '+'
+    registerB = ''
     inputRegisterB = true
 }
 
 document.getElementById('minus').onclick = function() {
-    if (registerB) {
-        result =  sum(parseInt(registerA), parseInt(registerB), operator)
+    if (registerB && lastAction != 'sum') {
+        result = sum(parseInt(registerA), parseInt(registerB), operator)
         display.innerText = result
         registerA = result
-        registerB = ''
     }
     operator = '-'
+    registerB = ''
     inputRegisterB = true
 }
 
@@ -152,18 +163,21 @@ document.getElementById('multiply').onclick = function() {
 }
 
 document.getElementById('divide').onclick = function() {
-    if (registerB) {
-        result =  sum(parseInt(registerA), parseInt(registerB), operator)
+    if (registerB && lastAction != 'sum') {
+        result = sum(parseInt(registerA), parseInt(registerB), operator)
         display.innerText = result
         registerA = result
-        registerB = ''
     }
     operator = '/'
+    registerB = ''
     inputRegisterB = true
 }
 
 document.getElementById('sum').onclick = function() {
-    display.innerText = sum(parseInt(registerA), parseInt(registerB), operator)
+    result = sum(parseInt(registerA), parseInt(registerB), operator)
+    display.innerText = result
+    registerA = result
+    lastAction = 'sum'
 }
 
 document.getElementById('reset').onclick = function() {
@@ -172,5 +186,6 @@ document.getElementById('reset').onclick = function() {
     inputRegisterB = false
     operator = undefined
     result = undefined
+    lastAction = ''
     display.innerText = 0
 }
